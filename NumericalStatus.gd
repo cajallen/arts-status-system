@@ -9,7 +9,11 @@ func _init(args).(args):
 	type = args["type"]
 	value = args["value"]
 	effects_dict = args["effects_dict"]
+	effects_dict[id] = self
 
 func add():
-	effects_dict[id] = self
 	.add()
+
+func remove():
+	effects_dict.erase(id)
+	.remove()

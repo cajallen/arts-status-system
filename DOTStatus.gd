@@ -1,4 +1,5 @@
 extends EchoStatus
+class_name DOTStatus
 
 var dps
 

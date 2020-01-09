@@ -25,8 +25,7 @@ func _init(args):
 		timer.connect("timeout", self, "remove_stack")
 		target.connect("process_signal", timer, "_process")
 	
-	if !is_permanent():
-		add()
+	add()
 
 
 func add():
