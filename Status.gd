@@ -12,16 +12,16 @@ var icon
 var description
 var timer
 
-func _init(_id, _target, time = null, _max_stacks = 1, _one_shot = false, _icon = null, _description = null):
-	target = _target
-	id = _id
-	max_stacks = _max_stacks
-	one_shot = _one_shot
-	icon = _icon
-	description = _description
+func _init(args):
+	id = args["id"]
+	target = args["target"]
+	max_stacks = args.get("max_stacks", 1)
+	one_shot = args.get("one_shot", false)
+	icon = args.get("icon", null)
+	description = args.get("description", null)
 	
-	if time != null:
-		timer = CustomTimer.new(time)
+	if "time" in args:
+		timer = CustomTimer.new(args["time"])
 		timer.connect("timeout", self, "remove_stack")
 		target.connect("process_signal", timer, "_process")
 	
